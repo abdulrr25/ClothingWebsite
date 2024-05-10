@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image';
 import React from 'react';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 interface propsType{
     img:string;
