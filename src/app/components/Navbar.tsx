@@ -1,39 +1,77 @@
-import React from 'react'
-import Link from 'next/link'
+"use client"
+
+import React, { useState } from "react";
+import Link from "next/link";
+import { FaBars } from "react-icons/fa"; // Importing an icon for the menu
+
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className='hiden lg:block'>
-        <div className='container'>
-            <div className='flex w-fit gap-10 mx-auto font-medium py-4 text-black  '>
+    <nav className="navbar">
+      <div className="container mx-auto flex justify-items-start gap-10 items-center py-4">
+        
 
-        <Link className='navbar__link relative' href='#' >
-            HOME
-        </Link>
-        <Link className='navbar__link relative' href='#' >
-            CATEGORIES
-        </Link>
-        <Link className='navbar__link relative' href='#' >
-            MENS
-        </Link>
-        <Link className='navbar__link relative' href='#' >
-            WOMEN
-        </Link>
-        <Link className='navbar__link relative' href='#' >
-            JEWELRY
-        </Link>
-        <Link className='navbar__link relative' href='#' >
-            PERFUME
-        </Link>
-        <Link className='navbar__link relative' href='#' >
-            BLOG
-        </Link>
-        <Link className='navbar__link relative' href='#' >
-            HOT OFFER
-        </Link>
-            </div>
-        </div>
-    </div>
-  )
-}
+        <button
+          className="lg:hidden text-lg focus:outline-none text-left"
+          onClick={toggleMenu}
+        >
+          <FaBars />
+        </button>
 
-export default Navbar
+        <ul
+          className={`${
+            isOpen ? "block" : "hidden"
+          } lg:flex w-fit gap-20 mx-auto font-medium text-black lg:py-0 py-4`}
+        >
+          <li>
+            <Link className="navbar__link relative" href="#">
+              HOME
+            </Link>
+          </li>
+          <li>
+            <Link className="navbar__link relative" href="#">
+              CATEGORIES
+            </Link>
+          </li>
+          <li>
+            <Link className="navbar__link relative" href="#">
+              MENS
+            </Link>
+          </li>
+          <li>
+            <Link className="navbar__link relative" href="#">
+              WOMEN
+            </Link>
+          </li>
+          <li>
+            <Link className="navbar__link relative" href="#">
+              JEWELRY
+            </Link>
+          </li>
+          <li>
+            <Link className="navbar__link relative" href="#">
+              PERFUME
+            </Link>
+          </li>
+          <li>
+            <Link className="navbar__link relative" href="#">
+              BLOG
+            </Link>
+          </li>
+          <li>
+            <Link className="navbar__link relative" href="#">
+              HOT OFFER
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
